@@ -31,7 +31,7 @@
         },
         "base": {
           "type": "number",
-          "description": "Base factor of the pp gained"
+          "description": "A base factor of the pp gained"
         },
         "curve": {
           "type": "array",
@@ -44,22 +44,22 @@
             "minItems": 2,
             "maxItems": 2
           },
-          "description": "This defines PP curve slopes."
+          "description": "This defines PP curve slopes. Only linear interpolation is supported."
         },
         "weight": {
           "type": "number",
-          "description": "Factor to be multiplied by pp of the play."
+          "description": "A weighting factor to be multiplied in order from Top Scores."
         },
         "segments": {
           "type": "object",
-          "description": "Segmentation based on pp value.",
+          "description": "List of segments. Keys indicate names, values indicate pp.",
           "additionalProperties": {
             "type": "number"
           }
         },
         "modifiersOverride": {
           "type": "object",
-          "description": "Overriding modifiers factor. It is used to disable positive modifiers for example.",
+          "description": "Overriding modifiers factors. It is used to disable positive modifiers for example.",
           "properties": {
             "NoPause": {
               "type": "number",

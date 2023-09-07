@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "title": "ScoreSaber No Restriction 092023",
-  "description": "<size=150%><#ffff66>ScoreSaber No Restriction<size=100%><#ffffff>\nA regulation with the exact same rules and map set as ScoreSaber! Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n\nMap set updated at 092023 where most recent ranked maps are excluded",
+  "title": "ScoreSaber v3 Any% (092023)",
+  "description": "<size=150%><#ffff66>ScoreSaber v3 Any% (092023)<size=100%><#ffffff>\nA regulation with the exact same rules and map set as ScoreSaber v3! Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n\nThe most recently ranked maps are excluded since they will be reweighted in the next batch.",
   "rules": {
     "mapSet": "scoresaber/092023.json",
     "base": 42.113,

@@ -63,8 +63,13 @@ const scoreSaberModifiersOverride = {
 function scoreSaberV3Regulation(mapSet: string) {
   return {
     version: 1,
-    title: `ScoreSaber No Restriction ${mapSet}`,
-    description: `<size=150%><#ffff66>ScoreSaber No Restriction<size=100%><#ffffff>\nA regulation with the exact same rules and map set as ScoreSaber! Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n\nMap set updated at ${mapSet} where most recent ranked maps are excluded`,
+    title: `ScoreSaber v3 Any% (${mapSet})`,
+    description:
+      `<size=150%><#ffff66>ScoreSaber v3 Any% (${mapSet})<size=100%><#ffffff>\n` +
+      `A regulation with the exact same rules and map set as ScoreSaber v3! ` +
+      `Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n` +
+      `\n` +
+      `The most recently ranked maps are excluded since they will be reweighted in the next batch.`,
     rules: {
       mapSet: `scoresaber/${mapSet}.json`,
       base: 42.113,
@@ -84,13 +89,16 @@ const yearAndMonth = new Date()
 {
   const dest = scoreSaberV3Regulation(yearAndMonth);
   await mkdir("scoresaber", { recursive: true });
-  await writeFile(`scoresaber/${yearAndMonth}.json`, JSON.stringify(dest, null, 2));
+  await writeFile(
+    `scoresaber/${yearAndMonth}.json`,
+    JSON.stringify(dest, null, 2)
+  );
 }
 
 const latestRegulations = {
-  regulations: [
-    `scoresaber/${yearAndMonth}.json`,
-  ]
+  regulations: [`scoresaber/${yearAndMonth}.json`],
 };
-await writeFile(`latest-regulations.json`, JSON.stringify(latestRegulations, null, 2));
-
+await writeFile(
+  `latest-regulations.json`,
+  JSON.stringify(latestRegulations, null, 2)
+);
