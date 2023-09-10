@@ -1,18 +1,5 @@
 import { mkdir, writeFile } from "fs/promises";
 
-const commonSegments = {
-  Iron: 1000,
-  Bronze: 2000,
-  Silver: 3000,
-  Gold: 4000,
-  Platinum: 5000,
-  Sapphire: 6000,
-  Ruby: 7000,
-  Diamond: 8000,
-  Master: 9000,
-  Grandmaster: 10000,
-};
-
 const scoreSaberV3Curve = [
   [0.0, 0.0],
   [0.6, 0.18223233667439062],
@@ -63,19 +50,20 @@ const scoreSaberModifiersOverride = {
 function scoreSaberV3Regulation(mapSet: string) {
   return {
     version: 1,
-    title: `ScoreSaber v3 Any% (${mapSet})`,
+    title: `ScoreSaber v3 (${mapSet})`,
     description:
-      `<size=150%><#ffff66>ScoreSaber v3 Any% (${mapSet})<size=100%><#ffffff>\n` +
+      `<size=150%><#ffff66>ScoreSaber v3 (${mapSet})<size=100%><#ffffff>\n` +
       `A regulation with the exact same rules and map set as ScoreSaber v3! ` +
       `Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n` +
       `\n` +
-      `The most recently ranked maps are excluded since they will be reweighted in the next batch.`,
+      `* Maps ranked in the most recent batch are excluded since they will be reweighted in the next batch.\n` +
+      `* The time limit is 48 hours. As long as you don't stop the speedrun (restarting the app is allowed), you can continue to improve your scores before the time limit.`,
     rules: {
       mapSet: `scoresaber/${mapSet}.json`,
       base: 42.113,
       curve: scoreSaberV3Curve,
       weight: 0.965,
-      segments: commonSegments,
+      timeLimit: 60 * 60 * 48,
       modifiersOverride: scoreSaberModifiersOverride,
     },
   };

@@ -3,7 +3,7 @@
 ## Rules
 
 - `rules` for each regulations maintained in this repository must be immutable.
-- The regulation based on ScoreSaber's regulation must be placed under scoresaber/.
+- The regulation based on ScoreSaber's regulation must be placed under `scoresaber/`.
 
 ## Format (v1)
 
@@ -50,43 +50,128 @@
           "type": "number",
           "description": "A weighting factor to be multiplied in order from Top Scores."
         },
-        "segments": {
+        "timeLimit": {
+          "type": "integer",
+          "description": "Seconds before the speedrun runs out of time."
+        },
+        "segmentRequirements": {
           "type": "object",
-          "description": "List of segments. Keys indicate names, values indicate pp.",
-          "additionalProperties": {
-            "type": "number"
-          }
+          "description": "Required pp per segment.",
+          "properties": {
+            "Bronze": {
+              "type": "number",
+              "default": 1000
+            },
+            "Silver": {
+              "type": "number",
+              "default": 2000
+            },
+            "Gold": {
+              "type": "number",
+              "default": 3000
+            },
+            "Platinum": {
+              "type": "number",
+              "default": 4000
+            },
+            "Emerald": {
+              "type": "number",
+              "default": 5000
+            },
+            "Sapphire": {
+              "type": "number",
+              "default": 6000
+            },
+            "Ruby": {
+              "type": "number",
+              "default": 7000
+            },
+            "Diamond": {
+              "type": "number",
+              "default": 8000
+            },
+            "Master": {
+              "type": "number",
+              "default": 9000
+            },
+            "Grandmaster": {
+              "type": "number",
+              "default": 10000
+            }
+          },
+          "additionalProperties": false
         },
         "modifiersOverride": {
           "type": "object",
           "description": "Overriding modifiers factors. It is used to disable positive modifiers for example.",
           "properties": {
-            "NoPause": {
+            "UsePause": {
               "type": "number",
-              "description": "Modifier not in vanilla Beat Saber, specially supported by Beat Speedrun.",
+              "description": "Extra modifier provided by Beat Speedrun. In-game pause enables this modifier.",
               "default": 1
             },
-            "BatteryEnergy": { "type": "number" },
-            "NoFail": { "type": "number" },
-            "InstaFail": { "type": "number" },
-            "NoObstacles": { "type": "number" },
-            "NoBombs": { "type": "number" },
-            "StrictAngles": { "type": "number" },
-            "DisappearingArrows": { "type": "number" },
-            "FasterSong": { "type": "number" },
-            "SlowerSong": { "type": "number" },
-            "NoArrows": { "type": "number" },
-            "GhostNotes": { "type": "number" },
-            "SuperFastSong": { "type": "number" },
-            "ProMode": { "type": "number" },
-            "ZenMode": { "type": "number" },
-            "SmallCubes": { "type": "number" }
+            "BatteryEnergy": {
+              "type": "number",
+              "default": 1
+            },
+            "NoFail": {
+              "type": "number",
+              "default": 0.5
+            },
+            "InstaFail": {
+              "type": "number",
+              "default": 1
+            },
+            "NoObstacles": {
+              "type": "number",
+              "default": 0.95
+            },
+            "NoBombs": {
+              "type": "number",
+              "default": 0.9
+            },
+            "StrictAngles": {
+              "type": "number",
+              "default": 1
+            },
+            "DisappearingArrows": {
+              "type": "number",
+              "default": 1.07
+            },
+            "FasterSong": {
+              "type": "number",
+              "default": 1.08
+            },
+            "SlowerSong": {
+              "type": "number",
+              "default": 0.7
+            },
+            "NoArrows": {
+              "type": "number",
+              "default": 0.7
+            },
+            "GhostNotes": {
+              "type": "number",
+              "default": 1.11
+            },
+            "SuperFastSong": {
+              "type": "number",
+              "default": 1.1
+            },
+            "ProMode": {
+              "type": "number",
+              "default": 1
+            },
+            "SmallCubes": {
+              "type": "number",
+              "default": 1
+            }
           },
           "additionalProperties": false
         }
       },
       "additionalProperties": false,
-      "required": ["mapSet", "base", "curve", "weight", "segments"]
+      "required": ["mapSet", "base", "curve", "weight", "timeLimit"]
     }
   },
   "additionalProperties": false,
@@ -109,12 +194,25 @@ type Rules = {
   base: number;
   curve: [number, number][];
   weight: number;
-  segments: { [P in string]: number };
+  timeLimit: number; // integer
+  segmentRequirements?: { [P in Segments]?: number };
   modifiersOverride?: { [M in Modifiers]?: number };
 };
 
+type Segments =
+  | 'Bronze'
+  | 'Silver'
+  | 'Gold'
+  | 'Platinum'
+  | 'Emerald'
+  | 'Sapphire'
+  | 'Ruby'
+  | 'Diamond'
+  | 'Master'
+  | 'Grandmaster';
+
 type Modifiers =
-  | 'NoPause'
+  | 'UsePause'
   | 'BatteryEnergy'
   | 'NoFail'
   | 'InstaFail'
@@ -128,6 +226,5 @@ type Modifiers =
   | 'GhostNotes'
   | 'SuperFastSong'
   | 'ProMode'
-  | 'ZenMode'
   | 'SmallCubes';
 ```

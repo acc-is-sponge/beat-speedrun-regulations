@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "title": "ScoreSaber v3 Any% (092023)",
-  "description": "<size=150%><#ffff66>ScoreSaber v3 Any% (092023)<size=100%><#ffffff>\nA regulation with the exact same rules and map set as ScoreSaber v3! Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n\nThe most recently ranked maps are excluded since they will be reweighted in the next batch.",
+  "title": "ScoreSaber v3 (092023)",
+  "description": "<size=150%><#ffff66>ScoreSaber v3 (092023)<size=100%><#ffffff>\nA regulation with the exact same rules and map set as ScoreSaber v3! Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n\n* Maps ranked in the most recent batch are excluded since they will be reweighted in the next batch.\n* The time limit is 48 hours. As long as you don't stop the speedrun (restarting the app is allowed), you can continue to improve your scores before the time limit.",
   "rules": {
     "mapSet": "scoresaber/092023.json",
     "base": 42.113,
@@ -156,18 +156,7 @@
       ]
     ],
     "weight": 0.965,
-    "segments": {
-      "Iron": 1000,
-      "Bronze": 2000,
-      "Silver": 3000,
-      "Gold": 4000,
-      "Platinum": 5000,
-      "Sapphire": 6000,
-      "Ruby": 7000,
-      "Diamond": 8000,
-      "Master": 9000,
-      "Grandmaster": 10000
-    },
+    "timeLimit": 172800,
     "modifiersOverride": {
       "DisappearingArrows": 1,
       "FasterSong": 1,
