@@ -1,5 +1,7 @@
 # Beat Speedrun Regulations
 
+Regulation definitions for [Beat Speedrun MOD](https://github.com/acc-is-sponge/beat-speedrun-mod).
+
 ## Rules
 
 - `rules` for each regulations maintained in this repository must be immutable.
