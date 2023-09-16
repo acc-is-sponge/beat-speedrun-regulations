@@ -183,7 +183,7 @@ Regulation definitions for [Beat Speedrun MOD](https://github.com/acc-is-sponge/
 
 `rules.mapSet` must be one of:
 
-- A relative path to the official MapSet, defined in the [beat-speedrun-mapsets](https://github.com/acc-is-sponge/beat-speedrun-mapsets) repository.
+- A relative path to the MOD-provided MapSet, defined in the [beat-speedrun-mapsets](https://github.com/acc-is-sponge/beat-speedrun-mapsets) repository.
   - e.g. `"scoresaber/v3/all/2023-09-16.json"`
 - An URL to the MapSet, starts with `https:`
   - e.g. `"https://raw.githubusercontent.com/acc-is-sponge/beat-speedrun-mapsets/main/scoresaber/092023.json"`
