@@ -188,7 +188,7 @@ Regulation definitions for [Beat Speedrun MOD](https://github.com/acc-is-sponge/
 - An URL to the MapSet, starts with `https:`
   - e.g. `"https://raw.githubusercontent.com/acc-is-sponge/beat-speedrun-mapsets/main/scoresaber/092023.json"`
 - `custom:` followed by a relative path to the custom MapSet, placed in the `$(BeatSaberDir)/UserData/BeatSpeedrun/CustomMapSets`
-  - e.g. `custom:tourney-2023.json`
+  - e.g. `"custom:tourney-2023.json"`
   - supported in v0.2.0~
 
 In short in TypeScript:

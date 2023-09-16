@@ -1,7 +1,7 @@
 {
   "version": 1,
   "title": "ScoreSaber/v3/all",
-  "description": "<size=150%><#ffff66>ScoreSaber/v3/all<size=100%><#ffffff>\nA regulation with the exact same rules and map set as ScoreSaber v3! Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n* MapSet updated at 2023-09-16\n* The time limit is 48 hours (application restarts are allowed)\n* Notice that MapSet contains maps ranked in the most recent batch and these will be reweighted in the next batch.",
+  "description": "<size=150%><#ffff66>ScoreSaber/v3/all<size=100%><#ffffff>\nA regulation with the exact same rules and map set as ScoreSaber v3! Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n\n* MapSet updated at 2023-09-16\n* The time limit is 48 hours (application restarts are allowed)\n* Notice that MapSet contains maps ranked in the most recent batch and these will be reweighted in the next batch.",
   "rules": {
     "mapSet": "scoresaber/v3/all/2023-09-16.json",
     "base": 42.113,

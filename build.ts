@@ -55,6 +55,7 @@ function scoreSaberV3AllRegulation(mapSet: string) {
       `<size=150%><#ffff66>ScoreSaber/v3/all<size=100%><#ffffff>\n` +
       `A regulation with the exact same rules and map set as ScoreSaber v3! ` +
       `Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n` +
+      `\n` +
       `* MapSet updated at ${mapSet}\n` +
       `* The time limit is 48 hours (application restarts are allowed)\n` +
       `* Notice that MapSet contains maps ranked in the most recent batch and these will be reweighted in the next batch.`,
