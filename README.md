@@ -29,7 +29,7 @@ Regulation definitions for [Beat Speedrun MOD](https://github.com/acc-is-sponge/
       "properties": {
         "mapSet": {
           "type": "string",
-          "description": "Reference to the map set. It must be an URL or a relative path to the map set JSON from mapsets repository (https://github.com/acc-is-sponge/beat-speedrun-mapsets)"
+          "description": "Reference to the map set"
         },
         "base": {
           "type": "number",
@@ -180,6 +180,16 @@ Regulation definitions for [Beat Speedrun MOD](https://github.com/acc-is-sponge/
   "required": ["version", "title", "description", "rules"]
 }
 ```
+
+`rules.mapSet` must be one of:
+
+- A relative path to the official MapSet, defined in the [beat-speedrun-mapsets](https://github.com/acc-is-sponge/beat-speedrun-mapsets) repository.
+  - e.g. `"scoresaber/v3/all/2023-09-16.json"`
+- An URL to the MapSet, starts with `https:`
+  - e.g. `"https://raw.githubusercontent.com/acc-is-sponge/beat-speedrun-mapsets/main/scoresaber/092023.json"`
+- `custom:` followed by a relative path to the custom MapSet, placed in the `$(BeatSaberDir)/UserData/BeatSpeedrun/CustomMapSets`
+  - e.g. `custom:tourney-2023.json`
+  - supported in v0.2.0~
 
 In short in TypeScript:
 

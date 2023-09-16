@@ -47,19 +47,19 @@ const scoreSaberModifiersOverride = {
   SuperFastSong: 1,
 };
 
-function scoreSaberV3Regulation(mapSet: string) {
+function scoreSaberV3AllRegulation(mapSet: string) {
   return {
     version: 1,
-    title: `ScoreSaber v3 (${mapSet})`,
+    title: `ScoreSaber/v3/all`,
     description:
-      `<size=150%><#ffff66>ScoreSaber v3 (${mapSet})<size=100%><#ffffff>\n` +
+      `<size=150%><#ffff66>ScoreSaber/v3/all<size=100%><#ffffff>\n` +
       `A regulation with the exact same rules and map set as ScoreSaber v3! ` +
       `Try to see how much pp you can earn in the real ScoreSaber within a certain time.\n` +
-      `\n` +
-      `* Maps ranked in the most recent batch are excluded since they will be reweighted in the next batch.\n` +
-      `* The time limit is 48 hours. As long as you don't stop the speedrun (restarting the app is allowed), you can continue to improve your scores before the time limit.`,
+      `* MapSet updated at ${mapSet}\n` +
+      `* The time limit is 48 hours (application restarts are allowed)\n` +
+      `* Notice that MapSet contains maps ranked in the most recent batch and these will be reweighted in the next batch.`,
     rules: {
-      mapSet: `scoresaber/${mapSet}.json`,
+      mapSet: `scoresaber/v3/all/${mapSet}.json`,
       base: 42.113,
       curve: scoreSaberV3Curve,
       weight: 0.965,
@@ -69,22 +69,19 @@ function scoreSaberV3Regulation(mapSet: string) {
   };
 }
 
-const yearAndMonth = new Date()
-  .toLocaleDateString("UTC", { year: "numeric", month: "2-digit" })
-  .split("/")
-  .join("");
+const timestamp = new Date().toISOString().slice(0, 10);
 
 {
-  const dest = scoreSaberV3Regulation(yearAndMonth);
-  await mkdir("scoresaber", { recursive: true });
+  const regulation = scoreSaberV3AllRegulation(timestamp);
+  await mkdir("scoresaber/v3/all", { recursive: true });
   await writeFile(
-    `scoresaber/${yearAndMonth}.json`,
-    JSON.stringify(dest, null, 2)
+    `scoresaber/v3/all/${timestamp}.json`,
+    JSON.stringify(regulation, null, 2)
   );
 }
 
 const latestRegulations = {
-  regulations: [`scoresaber/${yearAndMonth}.json`],
+  regulations: [`scoresaber/v3/all/${timestamp}.json`],
 };
 await writeFile(
   `latest-regulations.json`,
