@@ -4,7 +4,7 @@ Regulation definitions for [Beat Speedrun MOD](https://github.com/acc-is-sponge/
 
 ## Rules
 
-- `rules` for each regulations maintained in this repository must be immutable.
+- Regulations maintained in this repository must be immutable.
 - The regulation based on ScoreSaber's regulation must be placed under `scoresaber/`.
 
 ## Format (v1)
